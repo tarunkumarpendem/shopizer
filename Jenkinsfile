@@ -3,7 +3,7 @@ pipeline{
         label 'MVN3'
     }
     triggers{
-        pollSCM('15 * * * *')
+        pollSCM('* * * * *')
     }
     stages{
         stage('clone'){
@@ -16,7 +16,7 @@ pipeline{
             steps {
                 rtMavenDeployer (
                     id: "Maven_1",
-                    serverId: "https://tarun17.jfrog.io/",
+                    serverId: "shopizer",
                     releaseRepo: 'tarun-libs-release-local',
                     snapshotRepo: 'tarun-snapshot-release-local'
                 )
