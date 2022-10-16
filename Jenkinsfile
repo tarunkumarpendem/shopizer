@@ -1,0 +1,43 @@
+pipeline{
+    agent {
+        label 'MVN3'
+    }
+    triggers{
+        pollSCM('15 * * * *')
+    }
+    stages{
+        stage('clone'){
+            steps{
+                git url: 'https://github.com/tarunkumarpendem/shopizer.git',
+                    branch: 'develop'
+            }
+        }
+        stage ('Artifactory configuration') {
+            steps {
+                rtMavenDeployer (
+                    id: "Maven_1",
+                    serverId: "https://tarun17.jfrog.io/",
+                    releaseRepo: 'tarun-libs-release-local',
+                    snapshotRepo: 'tarun-snapshot-release-local'
+                )
+            }
+        }
+        stage ('Exec Maven') {
+            steps {
+                rtMavenRun (
+                    tool: 'MVN-3.6.3', // Tool name from Jenkins configuration
+                    pom: 'pom.xml',
+                    goals: 'clean install',
+                    deployerId: "MAVEN_DEPLOYER"
+                )
+            }
+        }
+        stage ('Publish build info') {
+            steps {
+                rtPublishBuildInfo (
+                    serverId: "Maven_1"
+                )
+            }
+        }
+    }
+}
