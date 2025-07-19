@@ -48,7 +48,7 @@
 		<!-- TODO replace with starter -->
 		<elasticsearch.version>7.5.2</elasticsearch.version>
 		<guava.version>27.1-jre</guava.version>
-		<commons-lang.version>3.5</commons-lang.version>
+		<commons-lang.version>3.18.0</commons-lang.version>
 		<commons-io.version>2.7</commons-io.version>
 		<commons-collections4.version>4.1</commons-collections4.version>
 		<commons-validator.version>1.5.1</commons-validator.version>
@@ -69,7 +69,7 @@
 		<jackson-version-databind>2.12.6.1</jackson-version-databind>
 		<jackson-version>2.10.2</jackson-version>
 		<geoip2.version>2.7.0</geoip2.version>
-		<drools.version>7.32.0.Final</drools.version>
+		<drools.version>10.0.0</drools.version>
 		<google-client-maps-services-version>0.1.6</google-client-maps-services-version>
 		<jwt.version>0.8.0</jwt.version>
 
@@ -103,7 +103,7 @@
 			<dependency>
 				<groupId>com.shopizer</groupId>
 				<artifactId>sm-core-model</artifactId>
-				<version>3.2.2</version>
+				<version>3.2.3</version>
 			</dependency>
 			<dependency>
 				<groupId>com.shopizer</groupId>
